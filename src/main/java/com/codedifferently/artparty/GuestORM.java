@@ -27,7 +27,7 @@ public class GuestORM {
     // Read (Select)
     public Guest readGuest(Long id) {
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM invites WHERE id = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM guest WHERE id = ?");
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -41,7 +41,7 @@ public class GuestORM {
     // Update
     public void updateGuest(Guest guest) {
         try {
-            PreparedStatement ps = conn.prepareStatement("UPDATE invites SET email = ?, firstName = ?, lastName = ? WHERE id = ?");
+            PreparedStatement ps = conn.prepareStatement("UPDATE guest SET email = ?, firstName = ?, lastName = ? WHERE id = ?");
             ps.setString(1, guest.getEmail());
             ps.setString(2, guest.getFirstName());
             ps.setString(3, guest.getLastName());
@@ -54,7 +54,7 @@ public class GuestORM {
     // Delete
     public void deleteGuest(Long id) {
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM invites WHERE id = ?");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM guest WHERE id = ?");
             ps.setLong(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {

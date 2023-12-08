@@ -47,8 +47,7 @@ public class LoadGuest {
 
     private static void createGuest(Scanner scanner, GuestORM inviteORM) {
         System.out.println("Creating a new guest...");
-        System.out.print("Enter ID: ");
-        int id = scanner.nextInt();
+
         scanner.nextLine(); // Consume the newline
 
         System.out.print("Enter Email: ");
@@ -62,7 +61,7 @@ public class LoadGuest {
 
         Guest guest = new Guest(firstName, lastName, email);
         inviteORM.createGuest(guest);
-        System.out.println("Invite created successfully.");
+        System.out.println("Guest created successfully.");
     }
 
     private static void readGuest(Scanner scanner, GuestORM guestORM) {
