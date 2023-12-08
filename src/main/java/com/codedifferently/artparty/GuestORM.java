@@ -31,7 +31,9 @@ public class GuestORM {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Guest(rs.getString("firstName"), rs.getString("lastName"), rs.getString("email"));
+                Guest guest = new Guest(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"));
+                guest.setId(id);
+                return guest;
             }
         } catch (SQLException e) {
             // Handle exception
